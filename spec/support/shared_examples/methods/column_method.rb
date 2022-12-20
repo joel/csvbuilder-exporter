@@ -11,7 +11,7 @@ shared_examples "column_method" do |mod, expectation = {}|
       row_model_class.send(:column, :string2)
     end
 
-    it "works" do
+    it do
       expect(instance.string1).to eql expectation[:string1]
       expect(instance.string2).to eql expectation[:string2]
     end
