@@ -29,10 +29,10 @@ module Csvbuilder
           end
         end
 
-        it_behaves_like "defines_attributes_methods_safely", alpha: "alpha one", string2: "beta two"
+        it_behaves_like "defines_attributes_methods_safely", alpha: "alpha one", beta: "beta two"
 
         describe "::column" do
-          it_behaves_like "column_method", Csvbuilder::Export, alpha: "alpha one", string2: "beta two"
+          it_behaves_like "column_method", Csvbuilder::Export, alpha: "alpha one", beta: "beta two"
         end
 
         describe "::define_attribute_method" do

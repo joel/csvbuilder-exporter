@@ -41,7 +41,7 @@ module Csvbuilder
             end
 
             it "return an array with the override" do
-              expect(to_row).to eql ["Test 1 :: - :: alpha", "Test 2 :: - :: string2"]
+              expect(to_row).to eql ["Test 1 :: - :: alpha", "Test 2 :: - :: beta"]
             end
           end
         end

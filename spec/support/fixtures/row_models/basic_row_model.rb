@@ -4,7 +4,7 @@ class BasicRowModel
   include Csvbuilder::Model
 
   column :alpha
-  column :string2, header: "String 2"
+  column :beta, header: "String 2"
 end
 
 #

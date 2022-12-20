@@ -8,12 +8,12 @@ shared_examples "column_method" do |mod, expectation = {}|
       row_model_class.send(:include, Csvbuilder::Model)
       row_model_class.send(:column, :alpha)
       row_model_class.send(:include, mod)
-      row_model_class.send(:column, :string2)
+      row_model_class.send(:column, :beta)
     end
 
     it do
       expect(instance.alpha).to eql expectation[:alpha]
-      expect(instance.string2).to eql expectation[:string2]
+      expect(instance.beta).to eql expectation[:beta]
     end
 
     context "with method defined before column" do
@@ -23,7 +23,7 @@ shared_examples "column_method" do |mod, expectation = {}|
             "custom1"
           end
 
-          def string2
+          def beta
             "custom2"
           end
         end
@@ -31,7 +31,7 @@ shared_examples "column_method" do |mod, expectation = {}|
 
       it "does not override those methods" do
         expect(instance.alpha).to eql "custom1"
-        expect(instance.string2).to eql "custom2"
+        expect(instance.beta).to eql "custom2"
       end
     end
   end
