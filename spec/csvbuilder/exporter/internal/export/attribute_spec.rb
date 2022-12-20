@@ -7,12 +7,9 @@ module Csvbuilder
     RSpec.describe Attribute do
       describe "instance" do
         let(:instance)        { described_class.new(:alpha, row_model) }
-        let(:row_model_class) { Class.new BasicExportModel }
         let(:source_model)    { OpenStruct.new(alpha: "alpha") }
         let(:row_model)       { row_model_class.new(source_model) }
-
-        describe "#value" do
-          let(:row_model_class) do
+                  let(:row_model_class) do
             Class.new(BasicExportModel) do
               class << self
                 def format_cell(source_value, _column_name, _context)
@@ -22,6 +19,8 @@ module Csvbuilder
             end
           end
 
+
+        describe "#value" do
           subject(:value) { instance.value }
 
           it "equals the formatted_value" do
