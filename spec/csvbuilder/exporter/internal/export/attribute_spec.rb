@@ -12,7 +12,7 @@ module Csvbuilder
         let(:row_model)       { row_model_class.new(source_model) }
 
         describe "#value" do
-                    let(:row_model_class) do
+          let(:row_model_class) do
             Class.new(BasicExportModel) do
               class << self
                 def format_cell(source_value, _column_name, _context)
@@ -25,8 +25,7 @@ module Csvbuilder
           subject(:value) { instance.value }
 
           it "equals the formatted_value" do
-            allow(instance).to receive(:formatted_value).and_return("stub")
-            expect(value).to eql "stub"
+            expect(value).to eql " - - alpha - - "
           end
         end
 
