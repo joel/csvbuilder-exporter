@@ -36,11 +36,11 @@ module Csvbuilder
         end
 
         describe "::define_attribute_method" do
-          subject(:define_attribute_method) { row_model_class.send(:define_attribute_method, :waka) }
+          subject(:define_attribute_method) { row_model_class.send(:define_attribute_method, :whatever) }
           it "makes an attribute that calls the source_model column_name method" do
             define_attribute_method
-            allow(source_model).to receive(:waka).with(no_args).and_return("tested")
-            expect(instance.waka).to eql "tested"
+            allow(source_model).to receive(:whatever).with(no_args).and_return("tested")
+            expect(instance.whatever).to eql "tested"
           end
 
           it_behaves_like "define_attribute_method"

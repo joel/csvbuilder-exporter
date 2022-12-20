@@ -21,13 +21,13 @@ module Csvbuilder
             before do
               row_model_class.class_eval do
                 def alpha
-                  "waka"
+                  "whatever"
                 end
               end
             end
 
             it "return an array with the override" do
-              expect(to_row).to eql ["waka", "Test 2"]
+              expect(to_row).to eql ["whatever", "Test 2"]
             end
           end
 
