@@ -3,7 +3,7 @@
 class BasicRowModel
   include Csvbuilder::Model
 
-  column :string1
+  column :alpha
   column :string2, header: "String 2"
 end
 

@@ -6,7 +6,7 @@ shared_examples "defines_attributes_methods_safely" do |attributes, mod = descri
   let(:row_model_class) do
     Class.new do
       include Csvbuilder::Model
-      column :string1
+      column :alpha
       inner_mod = mod.to_s.deconstantize # Csvbuilder::Import or Csvbuilder::Export for constructor
       include "#{inner_mod}::Base".constantize if inner_mod.present?
       include mod

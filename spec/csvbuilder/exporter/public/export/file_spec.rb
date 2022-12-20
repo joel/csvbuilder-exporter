@@ -7,9 +7,9 @@ module Csvbuilder
   module Export
     RSpec.describe File do
       describe "instance" do
-        let(:string1)  { "Value Of String 1" }
-        let(:string2)  { "Value Of String 2" }
-        let(:model)    { BasicModel.new(string1, string2) }
+        let(:alpha) { "Value Of String 1" }
+        let(:beta) { "Value Of String 2" }
+        let(:model)    { BasicModel.new(alpha, beta) }
         let(:instance) { described_class.new(BasicExportModel, some_context: true) }
 
         describe "#generate" do

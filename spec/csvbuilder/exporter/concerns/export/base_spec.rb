@@ -20,7 +20,7 @@ module Csvbuilder
           context "with attribute overwritten" do
             before do
               row_model_class.class_eval do
-                def string1
+                def alpha
                   "waka"
                 end
               end
@@ -41,7 +41,7 @@ module Csvbuilder
             end
 
             it "return an array with the override" do
-              expect(to_row).to eql ["Test 1__string1__#<OpenStruct>", "Test 2__string2__#<OpenStruct>"]
+              expect(to_row).to eql ["Test 1__alpha__#<OpenStruct>", "Test 2__string2__#<OpenStruct>"]
             end
           end
         end

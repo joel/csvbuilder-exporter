@@ -6,12 +6,10 @@ module Csvbuilder
   module Export
     RSpec.describe Attribute do
       describe "instance" do
-        let(:instance)        { described_class.new(:string1, row_model) }
+        let(:instance)        { described_class.new(:alpha, row_model) }
         let(:row_model_class) { Class.new BasicExportModel }
-        let(:source_model)    { OpenStruct.new(string1: "1.01") }
+        let(:source_model)    { OpenStruct.new(alpha: "alpha") }
         let(:row_model)       { row_model_class.new(source_model) }
-
-        it_behaves_like "has_needed_value_methods"
 
         describe "#value" do
           subject(:value) { instance.value }
@@ -23,11 +21,21 @@ module Csvbuilder
         end
 
         describe "#source_value" do
+          let(:row_model_class) do
+            Class.new(BasicExportModel) do
+              class << self
+                def format_cell(source_value, _column_name, _context)
+                  " - - #{source_value} - - "
+                end
+              end
+            end
+          end
+
           subject(:source_value) { instance.source_value }
 
           it "returns the row_model method" do
-            allow(source_model).to receive(:string1).and_call_original
-            expect(source_value).to eql("1.01")
+            allow(source_model).to receive(:alpha).and_call_original
+            expect(source_value).to eql("alpha")
           end
         end
       end

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class BasicModel
-  attr_accessor :string1, :string2
+  attr_accessor :alpha, :string2
 
-  def initialize(string1, string2)
-    @string1 = string1
+  def initialize(alpha, string2)
+    @alpha = alpha
     @string2 = string2
   end
 
