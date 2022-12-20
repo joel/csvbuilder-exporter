@@ -5,7 +5,7 @@ require "spec_helper"
 module Csvbuilder
   module Export
     RSpec.describe Attributes do
-      let(:source_model) { BasicModel.new("a", "b") }
+      let(:source_model) { BasicModel.new("alpha one", "beta two") }
       let(:instance)     { row_model_class.new(source_model) }
 
       describe "instance" do
@@ -29,10 +29,10 @@ module Csvbuilder
           end
         end
 
-        it_behaves_like "defines_attributes_methods_safely", alpha: "a", string2: "b"
+        it_behaves_like "defines_attributes_methods_safely", alpha: "alpha one", string2: "beta two"
 
         describe "::column" do
-          it_behaves_like "column_method", Csvbuilder::Export, alpha: "a", string2: "b"
+          it_behaves_like "column_method", Csvbuilder::Export, alpha: "alpha one", string2: "beta two"
         end
 
         describe "::define_attribute_method" do
