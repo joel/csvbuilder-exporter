@@ -35,13 +35,13 @@ module Csvbuilder
             before do
               row_model_class.class_eval do
                 def self.format_cell(*args)
-                  args.join("__")
+                  args[0..1].join(" :: - :: ")
                 end
               end
             end
 
             it "return an array with the override" do
-              expect(to_row).to eql ["Test 1__alpha__#<OpenStruct>", "Test 2__string2__#<OpenStruct>"]
+              expect(to_row).to eql ["Test 1 :: - :: alpha", "Test 2 :: - :: string2"]
             end
           end
         end
