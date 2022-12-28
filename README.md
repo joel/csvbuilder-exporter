@@ -1,12 +1,12 @@
 # Csvbuilder::Exporter
 
-# Csvbuilder::Exporter
-
 [Csvbuilder::Exporter](https://github.com/joel/csvbuilder-exporter) is part of the [csvbuilder-collection](https://github.com/joel/csvbuilder)
 
-The exporter contains the implementation for exporting an object collection as a CSV file.
+The exporter contains the implementation for exporting a collection of objects as a CSV file.
 
 ## Installation
+
+The gem doesn't need [csvbuilder-collection](https://github.com/joel/csvbuilder) and can be installed alone.
 
 Install the gem and add to the application's Gemfile by executing:
 
