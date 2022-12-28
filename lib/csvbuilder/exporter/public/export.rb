@@ -11,8 +11,6 @@ module Csvbuilder
 
     include Csvbuilder::Model
 
-    # include ActiveModel::Validations
-
     include Base
     include Attributes
   end
