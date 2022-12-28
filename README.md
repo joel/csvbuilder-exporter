@@ -1,8 +1,10 @@
 # Csvbuilder::Exporter
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/csvbuilder/exporter`. To experiment with that code, run `bin/console` for an interactive prompt.
+# Csvbuilder::Exporter
 
-TODO: Delete this and the text above, and describe your gem
+[Csvbuilder::Exporter](https://github.com/joel/csvbuilder-exporter) is part of the [csvbuilder-collection](https://github.com/joel/csvbuilder)
+
+The exporter contains the implementation for exporting an object collection as a CSV file.
 
 ## Installation
 
@@ -16,7 +18,46 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions here
+Exporting is straightforward; a `CsvRowModel` is needed to map the Ruby Object. Often an `ActiveRecord` Object. A `CsvExportModel` is required to carry the specifics of exporting.
+
+```ruby
+class UserCsvRowModel
+  include Csvbuilder::Model
+
+  column :first_name
+  column :last_name
+end
+```
+
+NOTE: If shipping is the only need, both classes can be merged.
+
+```ruby
+class UserCsvExportModel
+  include Csvbuilder::Model
+  include Csvbuilder::Export
+
+  column :first_name
+  column :last_name
+end
+```
+
+You need to provide both object collection and exporter class as follow:
+
+```ruby
+collection = User.all
+
+exporter = Csvbuilder::Export::File.new(UserCsvExportModel, context = {})
+
+exporter.headers
+# => "First Name", "Last Name"
+
+exporter.generate do |csv|
+  collection.each do |user|
+    csv.append_model(user, another_context: true)
+  end
+end
+# => "First Name,Last Name\nJohn,Doe\n"
+```
 
 ## Development
 
