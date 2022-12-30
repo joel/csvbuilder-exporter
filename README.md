@@ -7,7 +7,6 @@ The exporter contains the implementation for exporting a collection of objects a
 ## Installation
 
 The gem doesn't need [csvbuilder-collection](https://github.com/joel/csvbuilder) and can be installed alone.
-
 Install the gem and add to the application's Gemfile by executing:
 
     $ bundle add csvbuilder-exporter
@@ -67,7 +66,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/joel/csvbuilder-exporter. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/csvbuilder-exporter/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/csvbuilder-exporter. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/csvbuilder-exporter/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
