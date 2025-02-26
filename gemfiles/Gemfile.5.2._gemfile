@@ -9,6 +9,7 @@ gem "activesupport", "~> 5.2"
 
 # Libraries dependencies
 gem "csvbuilder-core"
+gem "csv"
 
 # Development dependencies
 gem "rake"

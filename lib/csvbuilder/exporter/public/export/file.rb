@@ -55,8 +55,8 @@ module Csvbuilder
           @file = file
         end
 
-        def append_model(*args)
-          @file.append_model(*args)
+        def append_model(*)
+          @file.append_model(*)
         end
         alias << append_model
       end
